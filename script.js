@@ -60,7 +60,7 @@ function displayCart() {
   let totalQuantity = 0;
   let totalPrice = 0;
 
-  cart.forEach((item) => {
+  cart.forEach((item, index) => {
     const productElement = document.createElement("div");
     productElement.classList.add("cart-item");
 
@@ -70,6 +70,7 @@ function displayCart() {
       <p>Price: $${item.price.toFixed(2)}</p>
       <p>Quantity: ${item.quantity}</p>
       <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+      <button class="delete-btn" onclick="removeFromCart(${index})">Delete</button>
     `;
 
     cartContainer.appendChild(productElement);
@@ -82,6 +83,17 @@ function displayCart() {
   document.getElementById("total-price").textContent = totalPrice.toFixed(2);
 }
 
+function removeFromCart(index) {
+  // Hapus item dari cart
+  cart.splice(index, 1);
+
+  // Simpan cart yang diperbarui ke localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Tampilkan cart yang diperbarui
+  displayCart();
+}
+
 // Fungsi untuk menghapus semua produk di cart
 function clearCart() {
   cart = [];
@@ -92,6 +104,9 @@ function clearCart() {
   document.getElementById("total-quantity").textContent = 0;
   document.getElementById("total-price").textContent = "0.00";
 }
+
+// Panggil displayCart saat halaman dimuat
+document.addEventListener("DOMContentLoaded", displayCart);
 
 // Fungsi untuk pergi ke halaman checkout (placeholder)
 function goToCheckout() {
