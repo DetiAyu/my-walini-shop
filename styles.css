@@ -55,7 +55,7 @@ h4 {
   flex-direction: column; /* Menyusun elemen secara vertikal */
   align-items: center; /* Memposisikan elemen secara horizontal di tengah */
   text-align: center;
-  width: 200px; /* Tentukan lebar tetap atau sesuai keinginan */
+  width: 210px; /* Tentukan lebar tetap atau sesuai keinginan */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -83,13 +83,26 @@ button:hover {
   background-color: #218838;
 }
 
+#cart-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
 #cart-container {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  max-width: 600px;
+  max-width: 650px;
   margin: 20px auto;
 }
 

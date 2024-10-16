@@ -21,15 +21,21 @@
         <div id="cart-container">
           <!-- Daftar produk dalam cart akan muncul di sini -->
         </div>
-        ---------------------------------
+
         <br /><br />
         <div id="cart-summary">
+          ---------------------------------
           <p>Total Quantity: <span id="total-quantity">0</span></p>
-          <p>Total Price: $<span id="total-price">0.00</span></p>
+          <p>Total Price: Rp &nbsp;<span id="total-price">0</span></p>
         </div>
-
-        <button onclick="clearCart()">Clear Cart</button>
-        <button onclick="goToCheckout()">Checkout</button>
+        <br /><br />
+        <div id="cart-button">
+          <button onclick="clearCart()">Clear Cart</button>
+          <button id="checkout-button" onclick="showShippingOptions()">Checkout</button>
+          <div id="shipping-options"></div>
+          <p id="total-price-shipping"></p>
+          <!-- Tempat untuk menampilkan total harga -->
+        </div>
       </section>
     </main>
 
@@ -37,6 +43,7 @@
       <p>&copy; 2024 My Walini Shop. All rights reserved.</p>
     </footer>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
