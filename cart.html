@@ -10,7 +10,7 @@
     <header>
       <div class="logo-container">
         <img src="images/logo.jpg" alt="My Walini Shop Logo" class="logo" />
-        <h1>My Walini Shop</h1>
+        <h1><a href="index.html">My Walini Shop</a></h1>
       </div>
       <nav>
         <a href="index.html">Products</a>
@@ -20,24 +20,22 @@
 
     <main>
       <section id="cart">
+        <br /><br />
         <center><h2>Your Cart</h2></center>
         <div id="cart-container">
           <!-- Daftar produk dalam cart akan muncul di sini -->
         </div>
 
         <br /><br />
-        <div id="cart-summary">
-          <p>Total Quantity: <span id="total-quantity">0</span></p>
-          <p>Total Price: Rp &nbsp;<span id="total-price">0</span></p>
-        </div>
+        <div id="cart-summary"></div>
         <br /><br />
         <div id="cart-button">
           <button onclick="clearCart()">Clear Cart</button>
           <button id="checkout-button" onclick="showShippingOptions()">Checkout</button>
-          <div id="shipping-options"></div>
-          <p id="total-price-shipping"></p>
-          <!-- Tempat untuk menampilkan total harga -->
         </div>
+        <div id="shipping-options"></div>
+        <p id="total-price-shipping"></p>
+        <!-- Tempat untuk menampilkan total harga -->
       </section>
     </main>
 

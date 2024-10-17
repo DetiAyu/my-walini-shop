@@ -25,6 +25,7 @@ function displayCart() {
 
   if (cart.length === 0) {
     cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    document.getElementById("cart-summary").innerHTML = ""; // Clear summary when cart is empty
     return;
   }
 
@@ -50,9 +51,7 @@ function displayCart() {
     totalPrice += item.price * item.quantity;
   });
 
-  document.getElementById("total-quantity").innerHTML = totalQuantity;
-  document.getElementById("total-price").innerHTML = totalPrice.toLocaleString("id-ID");
-
+  document.getElementById("cart-summary").innerHTML = `Total Quantity: ${totalQuantity} <br> Total Price: Rp ${totalPrice.toLocaleString("id-ID")}`;
   return totalPrice;
 }
 

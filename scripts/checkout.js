@@ -16,7 +16,7 @@ function showShippingOptions() {
   // Pilihan pengiriman (harga dan tanggal)
   const shippingOptions = `
       <h3>Choose Delivery Option:</h3>
-      <div>
+      <div id= delivery-option>
         <input type="radio" id="option1" name="shipping" value="10000" />
         <label for="option1">Economy - Rp 10.000 (Arrive: ${calculateDeliveryDate(3)})</label><br>
         
