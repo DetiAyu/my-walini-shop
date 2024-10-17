@@ -32,24 +32,25 @@ function displayCart() {
   let totalQuantity = 0;
   let totalPrice = 0;
 
-  cart.forEach((item, index) => {
-    const productElement = document.createElement("div");
-    productElement.classList.add("cart-item");
+  let cartHTML = "";
 
-    productElement.innerHTML = `
+  cart.forEach((item, index) => {
+    cartHTML += `
+      <div class="cart-item">
        <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px;" />
       <p><strong>${item.name}</strong></p>
       <p>Price: Rp ${item.price.toLocaleString("id-ID")}</p>
       <p>Quantity: ${item.quantity}</p>
       <p>Total: Rp ${(item.price * item.quantity).toLocaleString("id-ID")}</p>
       <button class="delete-btn" onclick="removeFromCart(${index})">Delete</button>
+      </div>
     `;
-
-    cartContainer.appendChild(productElement);
 
     totalQuantity += item.quantity;
     totalPrice += item.price * item.quantity;
   });
+
+  cartContainer.innerHTML = cartHTML;
 
   document.getElementById("cart-summary").innerHTML = `Total Quantity: ${totalQuantity} <br> Total Price: Rp ${totalPrice.toLocaleString("id-ID")}`;
   return totalPrice;
