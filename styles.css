@@ -104,7 +104,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 210px;
+  width: 250px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -207,7 +207,7 @@ button:hover {
 
 /* Cart Summary */
 #cart-summary {
-  background-color: #f8f9fa;
+  background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   border: 1px solid #ddd;
@@ -218,24 +218,6 @@ button:hover {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-}
-
-#cart-summary::before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: #ddd;
-  margin-bottom: 20px;
-}
-
-#cart-summary p {
-  margin: 10px 0;
-}
-
-#cart-summary span {
-  font-weight: bold;
-  color: #007bff;
 }
 
 #cart-button {

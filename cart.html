@@ -13,25 +13,33 @@
         <h1><a href="index.html">My Walini Shop</a></h1>
       </div>
       <nav>
-        <a href="index.html">Products</a>
-        <a href="cart.html">View Cart</a>
+        <h3>
+          <a href="index.html">Home</a>
+          <a href="cart.html" id="cart-link">
+            <span id="cart-notification">🛒 0 items</span>
+          </a>
+        </h3>
       </nav>
     </header>
 
     <main>
       <section id="cart">
-        <br /><br />
+        <br />
         <h2>Your Cart</h2>
-        <div id="cart-container">
-          <!-- Daftar produk dalam cart akan muncul di sini -->
+        <div id="cart-container"></div>
+        <div id="cart-summary">
+          <div id="total-quantity"></div>
+          <div id="total-price"></div>
         </div>
-        <div id="cart-summary"></div>
         <div id="cart-button">
           <button onclick="clearCart()">Clear Cart</button>
           <button id="checkout-button" onclick="showShippingOptions()">Checkout</button>
         </div>
-        <div id="shipping-options"></div>
-        <p id="total-price-shipping"></p>
+        <br />
+        <div id="delivery-option">
+          <div id="shipping-options"></div>
+          <div id="total-price-shipping"></div>
+        </div>
       </section>
     </main>
 

@@ -15,6 +15,9 @@ function addToCart(id, name, price, image) {
 
   // Menampilkan alert bahwa produk berhasil ditambahkan
   alert(`${quantity} ${name} berhasil ditambahkan ke keranjang!`);
+
+  // Memperbarui notifikasi jumlah produk di keranjang
+  updateCartNotification();
 }
 
 //---------------------------------------------------
@@ -52,18 +55,29 @@ function displayCart() {
 
   cartContainer.innerHTML = cartHTML;
 
-  document.getElementById("cart-summary").innerHTML = `Total Quantity: ${totalQuantity} <br> Total Price: Rp ${totalPrice.toLocaleString("id-ID")}`;
+  document.getElementById("total-quantity").innerHTML = `Total Quantity: ${totalQuantity}`;
+  document.getElementById("total-price").innerHTML = `Total Price: Rp ${totalPrice.toLocaleString("id-ID")}`;
+
   return totalPrice;
+}
+
+// Fungsi untuk memperbarui jumlah produk di header
+function updateCartNotification() {
+  // Ambil data cart dari localStorage saat memperbarui notifikasi
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  document.getElementById("cart-notification").textContent = `🛒 ${totalItems} items`;
 }
 
 //---------------------------------------------------
 // Fungsi untuk menghapus satu item di cart
 function removeFromCart(index) {
   // Hapus item dari cart
-  cart.splice(index, 1);
+  cart.splice(index, 1); // Menghapus item dari cart berdasarkan index
   // Simpan cart yang diperbarui ke localStorage
-  localStorage.setItem("cart", JSON.stringify(cart));
-  displayCart(); // Refresh tampilan cart
+  localStorage.setItem("cart", JSON.stringify(cart)); // Simpan perubahan ke localStorage
+  displayCart(); // Perbarui tampilan keranjang
+  updateCartNotification(); // Perbarui notifikasi jumlah produk di keranjang
 }
 
 // Fungsi untuk menghapus semua produk di cart
@@ -71,6 +85,7 @@ function clearCart() {
   cart = [];
   localStorage.removeItem("cart");
   displayCart(); // Refresh tampilan cart
+  updateCartNotification();
 
   // Set total quantity dan total price ke 0 setelah keranjang dikosongkan
   document.getElementById("total-quantity").innerHTML = 0;
@@ -78,5 +93,9 @@ function clearCart() {
 }
 
 //---------------------------------------------------
+
 // Panggil displayCart saat halaman dimuat
-document.addEventListener("DOMContentLoaded", displayCart);
+document.addEventListener("DOMContentLoaded", function () {
+  displayCart();
+  updateCartNotification();
+});

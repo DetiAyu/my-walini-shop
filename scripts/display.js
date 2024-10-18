@@ -10,7 +10,8 @@ function displayProducts() {
         <div class="product">
           <img src="${product.image}" alt="${product.name}" style="width: 150px; height: 150px;" />
           <h3>${product.name}</h3>
-          <p>Price: Rp ${product.price.toLocaleString("id-ID")}</p> 
+          <p>${product.type}</p>
+          <h4>Price: Rp ${product.price.toLocaleString("id-ID")}</h4> 
           <div class="quantity-control">
             <label for="quantity-${product.id}">Quantity: </label>
             <select id="quantity-${product.id}">
@@ -106,4 +107,8 @@ window.onload = function () {
 };
 
 // Event listener untuk menampilkan produk saat halaman dimuat
-document.addEventListener("DOMContentLoaded", displayProducts);
+
+document.addEventListener("DOMContentLoaded", function () {
+  displayProducts();
+  updateCartNotification();
+});
