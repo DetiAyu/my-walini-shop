@@ -14,7 +14,7 @@ function addToCart(id, name, price, image) {
   localStorage.setItem("cart", JSON.stringify(cart));
 
   // Menampilkan alert bahwa produk berhasil ditambahkan
-  alert(`${quantity} ${name} berhasil ditambahkan ke keranjang!`);
+  alert(`Add ${quantity} ${name} to cart!`);
 
   // Memperbarui notifikasi jumlah produk di keranjang
   updateCartNotification();

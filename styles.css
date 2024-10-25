@@ -68,6 +68,7 @@ h1 a.clicked {
 .logo-container {
   display: flex;
   align-items: center;
+  margin-left: 30px;
 }
 
 .logo {
@@ -78,7 +79,7 @@ h1 a.clicked {
 
 header nav a {
   color: white;
-  margin: 0 15px;
+  margin: 0 40px;
   text-decoration: none;
 }
 
